@@ -1,0 +1,10 @@
+/.metadata/*
+/RemoteSystemsTempFiles/*
+*/.svn/*
+*/Debug/*
+*/.cproject
+*/.project
+*/.classpath
+*/.settings
+*/.bin/*
+bin
