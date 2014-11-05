@@ -1,0 +1,137 @@
+html, body {
+    background-color: #eee;
+    height: 100%;
+}
+body {
+    padding-top: 0px; /* 40px to make the container go all the way to the bottom of the topbar */
+    background-color: rgb(221, 220, 220) !important;
+    display: block;
+
+}
+#container > footer p {
+    text-align: center; /* center align it with the container */
+}
+
+#wrapper{
+    width: 50%;
+    margin: 0 auto;
+    border: 10px solid #FFFFFF;
+    /*  	border: 10px solid green;  */
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+.container-fluid{
+    padding-top: 10px;
+    height: 100%;
+    /* 	border: 10px solid red; */
+    display: inherit;
+}
+
+/* Page header tweaks */
+.header {
+    background-color: black;
+    width: 100%;
+    height: 12%;
+    padding: 10px 20px;
+    margin: 0px auto;
+
+}
+
+.logo{
+    float: left;
+    padding-left: 20px;
+    color: #FFFFFF;
+}
+
+.menu{
+    float: right;
+    display: block;
+}
+
+.menu > ul {
+    margin: 0px;
+    padding: 49px 0px 0px 0px;
+    list-style: none;
+    line-height: normal;
+}
+
+.menu li{
+    float: left;
+    margin: 10px;
+    color: #FFFFFF;
+}
+
+.menu a{
+    color: #FFFFFF;
+}
+
+.menu .active{
+    background-color: #404040 !important;
+}
+
+.banner {
+    background: url(../images/img05.jpg) no-repeat left top;
+    width: 100%;
+    height: 18%;
+    margin-top: 10px;
+}
+
+#container{
+    width: 100%;
+    height: 70%;
+    /* 	border: 1px solid red; */
+    padding-top: 10px;
+}
+
+form{
+    width: 90%;
+    margin-top: 5px;
+}
+
+form.min{
+    width: 95%;
+}
+
+
+#sidebar{
+    float: left;
+    border: 1px solid rgb(221, 220, 220);
+    height: 100%;
+    width: 30%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#content{
+	float:right; 
+	width: 70%;
+	padding-left: 30px;
+	height: 100%;
+	overflow-y: auto; 
+}
+/* button{ */
+/* 	background-color: #000000 !important; */
+/* 	color: #FFFFFF !important; */
+/* } */
+
+.blackHeader{
+    width: 100%;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+.popover li{
+    color: #333;
+    margin: 0px;
+}
+
+.popover a{
+    color: #333;
+}
+
+.noBold {
+	font-weight: normal;
+}

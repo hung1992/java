@@ -1,0 +1,367 @@
+accounts:
+  - !!models.Account
+    email: toto@test.com
+    password: secret
+    role: 2
+    active: true
+  - !!models.Account
+    email: thi@test.com
+    password: secret
+    role: 1
+    active: true
+
+questions:
+  - &q1 !!models.Question
+    ID: 1
+    language: Java
+    type: 1
+    level: Medium
+    content: question1
+    answerValue: 8
+  - &q2 !!models.Question
+    ID: 2
+    language: Java
+    type: 1
+    level: Easy
+    content: question2
+    answerValue: 2
+  - &q3 !!models.Question
+    ID: 3
+    language: Java
+    type: 3
+    level: Hard
+    content: question3
+    answerValue: Answer text
+  - &q4 !!models.Question
+    ID: 4
+    language: Java
+    type: 3
+    level: Medium
+    content: question4
+    answerValue: Answer text
+  - &q5 !!models.Question
+    ID: 5
+    language: PHP
+    type: 1
+    level: Easy
+    content: question5
+    answerValue: 8
+  - &q6 !!models.Question
+    ID: 6
+    language: PHP
+    type: 1
+    level: Medium
+    content: question6
+    answerValue: 8
+  - &q7 !!models.Question
+    ID: 7
+    language: Java
+    type: 1
+    level: Medium
+    content: question7
+    answerValue: 4
+  - &q8 !!models.Question
+    ID: 8
+    language: Java
+    type: 2
+    level: Hard
+    content: question8
+    answerValue: 15
+  - &q9 !!models.Question
+    ID: 9
+    language: Java
+    type: 2
+    level: Easy
+    content: question9
+    answerValue: 13
+  - &q10 !!models.Question
+    ID: 10
+    language: C++
+    type: 2
+    level: Hard
+    content: question10
+    answerValue: 9
+  - &q11 !!models.Question
+    ID: 11
+    language: Java
+    type: 2
+    level: Medium
+    content: question11
+    answerValue: 11
+  - &q12 !!models.Question
+    ID: 12
+    language: C sharp
+    type: 3
+    level: Medium
+    content: question12
+    answerValue: Answer text
+  - &q13 !!models.Question
+    ID: 13
+    language: C sharp
+    type: 3
+    level: Medium
+    content: question13
+    answerValue: Answer text
+  - &q14 !!models.Question
+    ID: 14
+    language: C sharp
+    type: 3
+    level: Medium
+    content: question14
+    answerValue: Answer text
+  - &q15 !!models.Question
+    ID: 15
+    language: C sharp
+    type: 3
+    level: Medium
+    content: question15
+    answerValue: Answer text
+  - &q16 !!models.Question
+    ID: 16
+    language: C sharp
+    type: 3
+    level: Hard
+    content: question16
+    answerValue: Answer text
+  - &q17 !!models.Question
+    ID: 17
+    language: C sharp
+    type: 3
+    level: Easy
+    content: question17
+    answerValue: Answer text
+  - &q18 !!models.Question
+    ID: 18
+    language: C sharp
+    type: 2
+    level: Medium
+    content: question18
+    answerValue: 7
+  - &q19 !!models.Question
+    ID: 19
+    language: C sharp
+    type: 1
+    level: Medium
+    content: question19
+    answerValue: 1
+  - &q20 !!models.Question
+    ID: 20
+    language: C sharp
+    type: 1
+    level: Medium
+    content: question20
+    answerValue: 2
+
+quizzes:
+  - !!models.Quiz
+    ID: 1
+    content: quiz1
+    sequence: 0
+    question: *q1
+  - !!models.Quiz
+    ID: 2
+    content: quiz2
+    sequence: 1
+    question: *q1
+  - !!models.Quiz
+    ID: 3
+    content: quiz3
+    sequence: 2
+    question: *q1
+  - !!models.Quiz
+    ID: 4
+    content: quiz4
+    sequence: 3
+    question: *q1
+  - !!models.Quiz
+    ID: 5
+    content: quiz5
+    sequence: 0
+    question: *q2
+  - !!models.Quiz
+    ID: 6
+    content: quiz6
+    sequence: 1
+    question: *q2
+  - !!models.Quiz
+    ID: 7
+    content: quiz7
+    sequence: 2
+    question: *q2
+  - !!models.Quiz
+    ID: 8
+    content: quiz8
+    sequence: 3
+    question: *q2
+  - !!models.Quiz
+    ID: 9
+    content: quiz9
+    sequence: 0
+    question: *q5
+  - !!models.Quiz
+    ID: 10
+    content: quiz10
+    sequence: 1
+    question: *q5
+  - !!models.Quiz
+    ID: 11
+    content: quiz11
+    sequence: 2
+    question: *q5
+  - !!models.Quiz
+    ID: 12
+    content: quiz12
+    sequence: 3
+    question: *q5
+  - !!models.Quiz
+    ID: 13
+    content: quiz13
+    sequence: 0
+    question: *q6
+  - !!models.Quiz
+    ID: 14
+    content: quiz14
+    sequence: 1
+    question: *q6
+  - !!models.Quiz
+    ID: 15
+    content: quiz15
+    sequence: 2
+    question: *q6
+  - !!models.Quiz
+    ID: 16
+    content: quiz16
+    sequence: 3
+    question: *q6
+  - !!models.Quiz
+    ID: 17
+    content: quiz17
+    sequence: 0
+    question: *q7
+  - !!models.Quiz
+    ID: 18
+    content: quiz18
+    sequence: 1
+    question: *q7
+  - !!models.Quiz
+    ID: 19
+    content: quiz19
+    sequence: 2
+    question: *q7
+  - !!models.Quiz
+    ID: 20
+    content: quiz20
+    sequence: 3
+    question: *q7
+  - !!models.Quiz
+    ID: 21
+    content: quiz21
+    sequence: 0
+    question: *q8
+  - !!models.Quiz
+    ID: 22
+    content: quiz22
+    sequence: 1
+    question: *q8
+  - !!models.Quiz
+    ID: 23
+    content: quiz23
+    sequence: 2
+    question: *q8
+  - !!models.Quiz
+    ID: 24
+    content: quiz24
+    sequence: 3
+    question: *q8
+  - !!models.Quiz
+    ID: 25
+    content: quiz25
+    sequence: 4
+    question: *q8
+  - !!models.Quiz
+    ID: 26
+    content: quiz26
+    sequence: 0
+    question: *q18
+  - !!models.Quiz
+    ID: 27
+    content: quiz27
+    sequence: 1
+    question: *q18
+  - !!models.Quiz
+    ID: 28
+    content: quiz28
+    sequence: 2
+    question: *q18
+  - !!models.Quiz
+    ID: 29
+    content: quiz29
+    sequence: 0
+    question: *q19
+  - !!models.Quiz
+    ID: 30
+    content: quiz30
+    sequence: 1
+    question: *q19
+  - !!models.Quiz
+    ID: 31
+    content: quiz31
+    sequence: 2
+    question: *q19
+  - !!models.Quiz
+    ID: 32
+    content: quiz32
+    sequence: 3
+    question: *q19
+
+exams:
+  - &e1 !!models.Exam
+    ID: 1
+    name: Senior Java developer
+    duration: 60
+    numberOfQuestion: 10
+    language: Java
+  - &e2 !!models.Exam
+    ID: 2
+    name: JuniorJavadeveloper
+    duration: 60
+    numberOfQuestion: 5
+    language: Java
+  - &e3 !!models.Exam
+    ID: 3
+    name: Senior PHP developer
+    duration: 60
+    numberOfQuestion: 10
+    language: PHP
+
+exam_question:
+  - !!models.OrderQuestion
+      ID: 1
+      exam: *e1 
+      question: *q1
+      sequence: 1
+  - !!models.OrderQuestion
+      ID: 2
+      exam: *e1
+      question: *q2
+      sequence: 2
+  - !!models.OrderQuestion
+      ID: 3
+      exam: *e1
+      question: *q4
+      sequence: 3
+  - !!models.OrderQuestion
+      ID: 4
+      exam: *e2
+      question: *q1
+      sequence: 1
+  - !!models.OrderQuestion
+      ID: 5
+      exam: *e2
+      question: *q3
+      sequence: 2
+  - !!models.OrderQuestion
+      ID: 6
+      exam: *e3
+      question: *q5
+      sequence: 1

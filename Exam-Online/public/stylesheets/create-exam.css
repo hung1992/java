@@ -1,0 +1,44 @@
+#sidebar{
+	width: 0px !important;
+	display: none !important;
+}
+
+#content{
+	width: 100% !important;
+	padding-left: 10px !important;
+}
+
+.part{
+	float: center;
+	padding: 10px;
+}
+
+.select-input{
+	width: 60%;
+}
+
+.menu-control{
+	float: left;
+	padding-bottom: 15px;
+}
+
+.text-input{
+	witdh: 100px;
+	float: left;
+}
+
+.button-input{
+	witdh: 30%;
+}
+
+.menu-dropdown{
+	float: right !important;
+}
+
+.header-text{
+	padding-left: 20px;
+}
+
+.badge-right{
+	float: right;
+}

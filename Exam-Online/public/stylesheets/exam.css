@@ -1,0 +1,14 @@
+#sidebar{
+	width: 0px !important;
+	display: none !important; 
+}
+
+#content{
+	width: 100% !important;
+	padding-left: 10px !important;
+}
+
+textarea{
+	border: solid 1px rgb(221, 220, 220);
+	width: 100%;
+}

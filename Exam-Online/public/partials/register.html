@@ -1,0 +1,118 @@
+<!-- register page -->
+
+<div class="container-fluid wrapper">
+    <div ng-controller="RegisterCtrl">
+        <div id="registerDiv">
+            <h1>Register candidate</h1>
+            <form class="form-horizontal" role="form" ng-submit="submit()">
+                <fieldset>
+                    <legend><h3>Personal Data</h3></legend>
+                    <div class="form-group">
+                        <label for="fullName">Fullname</label>
+
+                        <div>
+                            <input type="text" class="form-control" ng-model="user.fullName" id="fullName"
+                                   required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">Birthday (yyyy-mm-dd)</label>
+
+                        <div>
+                            <input type="date" class="form-control" ng-model="user.birthday" id="birthday" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+
+                        <div>
+                            <select class="form-control" ng-model="user.gender" id="gender" required="required">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+
+                        <div>
+                            <input type="text" class="form-control" ng-model="user.address" id="address" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number</label>
+
+                        <div>
+                            <input type="text" class="form-control" ng-model="user.phoneNumber" id="phoneNumber" required="required">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><h3>Skill</h3></legend>
+                    <div class="form-group">
+                        <label for="experience">Experience</label>
+
+                        <div>
+                            <input type="number" class="form-control" ng-model="user.experience" min="0" max="99" id="experience" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="language">Language</label>
+
+                        <div>
+                            <input type="text" class="form-control" ng-model="user.language" id="language" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Position</label>
+
+                        <div>
+                            <select class="form-control" ng-model="user.position" id="position" required>
+                                <option ng-repeat="pos in positions">{{pos}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Level</label>
+
+                        <div>
+                            <select class="form-control" ng-model="user.level" id="level" required>
+                                <option ng-repeat="lv in levels">{{lv}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><h3>Account Data</h3></legend>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+
+                        <div>
+                            <input type="email" class="form-control" ng-model="acc.email" id="email" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+
+                        <div>
+                            <input type="password" class="form-control" ng-model="password" id="password" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmpassword">Confirm Password</label>
+                        <di>
+                            <input type="password" class="form-control" ng-model="confirmpassword" id="confirmpassword" required="required">
+                    </div>
+        		</fieldset>
+		        <div class="form-group">
+		            <div>
+		                <button type="submit" class="btn btn-primary">Register</button>
+		            </div>
+		        </div>
+        	</form>
+	    </div>
+	</div>
+</div>

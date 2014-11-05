@@ -1,0 +1,45 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+# Home page
+GET           /ping                                          controllers.Application.ping()
+POST          /login                                         controllers.Application.authenticate()
+POST          /logout                                        controllers.Application.logout()
+
+#Exams
+GET           /exam                                          controllers.ExamManager.exams()
+GET			/exam/:id/getOrder								controllers.OrderQuestionManager.getByIdExam(id: Long)
+POST          /exam                                          controllers.ExamManager.exam()
+POST          /exam/:id                                      controllers.ExamManager.updateExam(id: Long)
+DELETE        /exam/:id                                      controllers.ExamManager.deleteExam(id: Long)
+
+# Users
+POST          /users/:id/deactive                            controllers.UserManager.deactive(id:String)
+POST          /users/register                                controllers.UserManager.register()
+POST          /users/modify-profile                          controllers.UserManager.modifyProfile()
+POST          /users/change-pass                             controllers.UserManager.changePass()
+GET           /users/:id                                     controllers.UserManager.getProfile(id: String)
+GET           /users                                         controllers.UserManager.loadAllUser()
+GET           /users/:id/delete-user                         controllers.UserManager.deleteUser(id : String)
+
+
+GET           /users/:id/get-data1                           controllers.UserManager.sendDataToClient(id:String)
+GET           /users/:id/save-score/:arg                     controllers.UserManager.saveScore(id: String, arg: String)
+GET           /users/:emailCandidate/set-exam/:idExam        controllers.UserManager.setExam(emailCandidate: String, idExam: Long)
+
+# Answer
+POST          /users/:id/send-exam                           controllers.AnswerManager.answer(id: String)
+
+#Question
+GET           /question                                      controllers.QuestionManager.questions()
+POST          /question                                      controllers.QuestionManager.newQuestion()
+POST          /question/:id                                  controllers.QuestionManager.updateQuestion(id: Long)
+DELETE        /question/:id                                  controllers.QuestionManager.deleteQuestion(id: Long)
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /*file                                         controllers.Assets.at(path="/public", file)

@@ -1,0 +1,26 @@
+
+<div class="menu" ng-controller="MenuCtrl">
+
+ 	<ul>
+ 		<!-- Candidate menu -->
+		<li class="active" ng-hide="logged && user.role == 2"><a href="#/home">Home</a></li>
+		<li><a href="#/register" ng-hide="logged && user.role == 2">Register</a></li>
+		<li><a href="#/about" ng-hide="logged && user.role == 2">About</a></li>
+				
+		<!-- Admin menu -->
+		<li ng-show="logged && user.role == 2"><a href="#/admin">Administration</a></li>	
+		
+		<div class="btn-group" ng-show="logged">
+			<li class="dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown">{{user.email}}<span class="caret"></span></li>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#/change-pass" >Change password</a></li>
+			    <li><a href="#/modify-profile" >Settings</a></li>
+			    <li><a href="#" ng-click="logout()">Logout</a></li>
+			</ul>
+		</div>
+  
+	</ul>
+	
+	
+	
+</div>

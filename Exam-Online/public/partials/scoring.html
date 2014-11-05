@@ -1,0 +1,93 @@
+<link rel="stylesheet" media="screen" href="stylesheets/exam.css" />
+<div class="container-fluid wrapper">
+
+    <div ng-controller="AdminCtrl">
+        <div align="center" style="background-color: beige">
+            <h2 style="font-family: monospace ; color: darkgreen">Candidate Information </h2><br>
+
+            <table border="0px" style="border-collapse: separate; border-spacing: 20px;
+                border-radius: 4px;
+                background-color: greenyellow">
+                <tr>
+                    <td>Name</td>
+                    <td>{{user.fullName}}</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>{{user.phoneNumber}}</td>
+                </tr>
+
+                <tr>
+                    <td>Birthday</td>
+                    <td>{{user.birthday}}</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>{{user.gender}}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{user.address}}</td>
+                </tr>
+
+                <tr>
+                    <td>Experience</td>
+                    <td>{{user.experience}}  years</td>
+                </tr>
+
+            </table>
+
+            <br>
+            <button type="submit" class="btn btn-primary" data-ng-click="sendAndGetData()">
+                Result
+            </button><br>
+            <br>
+
+        </div>
+        <div align="center" style="background-color: lightgoldenrodyellow">
+            <h2 style="font-family: sans-serif; color: #0044CC">RESULT</h2><br>
+            <form>
+                <table class="table table-bordered" style="border: 4px; border-radius: 6px" >
+                    <tr>
+                        <th>Question</th>
+                        <th>Origin Result</th>
+                        <th>Candidate Result</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr ng-repeat="data in allData">
+                        <td style="width: 100%">
+                            <ul>
+                                <li>
+                                    {{data.question.content}}
+                                    <ul>
+                                        <li ng-repeat="q in data.question.quizzes">
+                                            {{q.content}}<br>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </td>
+                        <td style="width: 100%">{{data.question.answerValue}}</td>
+                        <td style="width: 100%">{{data.answer}}</td>
+                        <td
+                                style="width: 5%"><input class="form-control input-sm" type="text"
+                                                         placeholder="" ng-model="data.score"></td>
+                    </tr>
+
+                </table>
+                <div class="form-group" align="center">
+                    <p style="font-family: monospace; font-size: 20pt; color: #080808;" >Total score:
+                        {{calScore()}}</p>
+	                <hr style="width: 50% ;
+                        height:3px;border:none;color:red;background-color:red" size="5">
+	                <button type="submit" class="btn btn-primary" data-ng-click="saveUserScore()">
+		                Save&Exit
+	                </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>

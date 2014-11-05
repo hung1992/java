@@ -1,0 +1,36 @@
+<!-- register page -->
+
+<div class="container-fluid wrapper">
+
+	<div ng-controller="ChangePassCtrl">
+		<div id="changepassDiv">
+			<h2>Change Password</h2>
+				<form class="form" role="ChangePassCtrl" ng-submit="submit()">			
+					<div class="form-group">
+						<label for="oldPass">Old Password</label>
+						<div>
+							<input type="password" class="form-control" ng-model="oldPass" id="oldPass" required="required">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="newPass">New Password</label>
+						<div>
+							<input type="password" class="form-control" ng-model="newPass" id="newPass" required="required">
+						</div>
+					</div>					
+					<div class="form-group">
+						<label for="confirmNewPass">Confirm New Password</label>
+						<div>
+							<input type="password" class="form-control" ng-model="confirmNewPass" id="confirmNewPass" required="required">
+						</div>
+					</div>	
+					<div class="form-group">
+						<div>
+							<button type="submit" class="btn btn-primary">Change Password</button>
+						</div>
+					</div>		
+				</form>	
+		</div>
+	</div>
+	
+</div>

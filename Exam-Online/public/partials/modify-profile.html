@@ -1,0 +1,80 @@
+<!-- register page -->
+
+<div class="container-fluid wrapper">
+
+	<div>
+		<div id="registerDiv">
+			<h1>Change Your Infomation</h1>
+			
+			<form class="form-horizontal" role="form" ng-submit="submit()">
+				<div class="form-group">
+					<label for="fullName">Fullname</label>
+					<div>
+						<input type="text" class="form-control" ng-model="user.fullName" id="fullName" required="required">
+					</div>
+				</div>				
+				<div class="form-group">
+					<label for="birthday">Birthday</label>
+					<div>
+						<input type="date" class="form-control" ng-model="user.birthday" id="birthday">
+					</div>
+				</div>				
+				<div class="form-group">
+					<label for="gender">Gender</label>
+					<div>
+						<select class="form-control" ng-model="user.gender" id="gender">
+							<option>Male</option>
+							<option>Female</option>
+							<option>Other</option>
+						</select>
+					</div>
+				</div>					
+				<div class="form-group">
+					<label for="address">Address</label>
+					<div>
+						<input type="text" class="form-control" ng-model="user.address" id="address">
+					</div>
+				</div>					
+				<div class="form-group">
+					<label for="phoneNumber">Phone</label>
+					<div>
+						<input type="text" class="form-control" ng-model="user.phoneNumber" id="phoneNumber" required="required">
+					</div>
+				</div>			
+				<div class="form-group">
+					<label for="experience">Experience</label>
+					<div>
+						<input type="number" class="form-control" ng-model="user.experience" id="experience" min="0" max="99">
+					</div>
+				</div>					
+				<div class="form-group">
+					<label for="language">Language</label>
+					<div>
+						<input type="text" class="form-control" ng-model="user.language" id="language">
+					</div>
+				</div>					
+				<div class="form-group">
+					<label for="position">Position</label>
+					<div>
+						<select class="form-control" ng-model="user.position" id="position">
+							<option ng-repeat="pos in positions">{{pos}}</option>
+						</select>
+					</div>
+				</div>					
+				<div class="form-group">
+					<label for="level">Level</label>
+					<div>
+						<select class="form-control" ng-model="user.level" id="level">
+							<option ng-repeat="lv in levels">{{lv}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div>
+						<button type="submit" class="btn btn-primary">Done</button>
+					</div>
+				</div>
+			</form>			
+		</div>
+	</div>
+</div>

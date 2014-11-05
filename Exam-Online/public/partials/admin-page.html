@@ -1,0 +1,240 @@
+<!-- begin import libraries-->
+
+<link rel="stylesheet" type="text/css" href="../stylesheets/css/style.css"/>
+<!--<script type="text/javascript" src="../javascripts/js/jquery.min.js"></script>-->
+<script type="text/javascript" src="../javascripts/js/ddaccordion.js"></script>
+<!--<script type="text/javascript" src="../lib/bootstrap/css/bootstrap.css"></script>
+<script type="text/javascript" src="../lib/bootstrap/css/bootstrap.min.css"></script>-->
+<link rel="stylesheet" media="screen" href="stylesheets/admin.css"/>
+<!-- and of import -->
+
+<script src="../javascripts/js/jquery.jclock-1.2.0.js.txt" type="text/javascript"></script>
+<script type="text/javascript" src="../javascripts/js/jconfirmaction.jquery.js"></script>
+
+
+<script language="javascript" type="text/javascript" src="../javascripts/js/niceforms.js"></script>
+<link rel="stylesheet" type="text/css" media="all"
+      href="../stylesheets/css/niceforms-default.css"/>
+
+<div id="main_container">
+
+
+<div class="main_content">
+
+    <div class="center_content">
+        <div class="left_content" style=" background-color: #d3d3d3" >
+
+
+
+	        <table id = "rounded-corner" style="width: 100% ; border-radius: 24px">
+		        <tr>
+			        <th style="text-align: center" scope="col" class="rounded">DASH BOARD</th>
+		        </tr>
+		        <tr>
+			        <td><ul><li><a href = "">Demo</a></li></ul></td>
+		        </tr>
+		        <tr>
+			        <td><ul><li><a href = "">Demo</a></li></ul></td>
+		        </tr>
+
+
+		        <tr>
+			        <td><ul><li><a href = "">Demo</a></li></ul></td>
+		        </tr>
+
+		        <tr>
+			        <td><ul><li><a href = "">Demo</a></li></ul></td>
+		        </tr>
+		        <tr>
+			        <td><ul><li><a href = "">Demo</a></li></ul></td>
+		        </tr>
+
+
+		        <tr>
+			        <td><ul><li><a href = "">Demo</a></li></ul></td>
+		        </tr>
+
+		        <tr>
+			        <td><ul><li><a href = "">Demo</a></li></ul></td>
+		        </tr>
+		        <tr>
+			        <td><ul><li><a href = "">Demo</a></li></ul></td>
+		        </tr>
+
+
+		        <tr>
+			        <td><ul><li><a href = "">Demo</a></li></ul></td>
+		        </tr>
+
+
+		    </table>
+
+        </div>
+
+        <div class="right_content" ng-controller="loadAllUserCtr">
+
+
+            <nav class="navbar navbar-default" role="navigation" style="width: 480px">
+                <div class="container-fluid" >
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
+                            >
+
+                               <span class="dropdown" style="padding-right: 50px">
+                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                      style="font-size: 12px; font-weight: bold">Language <span
+                                           class="caret"></span></a>
+                                   <ul class="dropdown-menu" role="menu" style="min-width: 81px;
+                                   padding-left: 0px">
+                                       <li>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnJava()">Java
+                                           </button><br>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnPHP()">PHP
+                                           </button><br>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnCplus()">C/C++
+                                           </button><br>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnCSharp()">C#/.NET
+                                           </button><br>
+                                           <button
+                                                   style="background-color:inherit; border: none"
+                                                   data-ng-click="btnHTMLJavaScript()">HTML/JavaScript
+                                           </button><br>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnRuby()">Ruby
+                                           </button><br>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnPython()">Python
+                                           </button><br>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnAll()">All
+                                               Language
+                                           </button><br>
+                                       </li>
+                                   </ul>
+                               </span>
+
+
+
+                             <span class="dropdown" style="padding-right: 50px">
+                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                      style="font-size: 12px; font-weight: bold">Position <span
+                                           class="caret"></span></a>
+                                   <ul class="dropdown-menu" role="menu" style="min-width: 120px;
+                                   padding-left: 0px">
+                                       <li>
+                                           <button style="background-color:inherit; border: none"
+                                                   data-ng-click="btnDeveloper()">Developer
+                                           </button><br>
+                                           <button style="background-color:inherit; border: none"  data-ng-click="btnTeamLeader()">Team Leader
+                                           </button><br>
+	                                       <button style="background-color:inherit; border: none"  data-ng-click="btnTester()">Tester
+	                                       </button><br>
+                                           <button
+                                                   style="background-color:inherit; border: none" data-ng-click="btnDBA()">DBA
+                                           </button>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnAll()">
+                                               All Position
+                                           </button>
+                                       </li>
+                                   </ul>
+                               </span>
+
+                            <span class="dropdown" style="padding-right: 50px">
+                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                      style="font-size: 12px; font-weight: bold">Level <span
+                                           class="caret"></span></a>
+                                   <ul class="dropdown-menu" role="menu" style="min-width: 81px;
+                                   padding-left: 0px">
+                                       <li>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnIntern()">Internship
+                                           </button><br>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnJunior()">Junior
+                                           </button><br>
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnSenior()">Senior
+                                           </button><br>
+
+                                           <button style="background-color:inherit; border: none" data-ng-click="btnAll()">All Level
+                                           </button><br>
+                                       </li>
+                                   </ul>
+                               </span>
+
+
+	                    <span class="dropdown" style="padding-right: 5px">
+                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                      style="font-size: 12px; font-weight: bold">Backup <span
+		                                   class="caret"></span></a>
+                                   <ul class="dropdown-menu" role="menu" style="min-width: 100px;
+                                   padding-left: 0px">
+	                                   <li>
+		                                   <button style="background-color:inherit; border: none" data-ng-click="logout()">Log Out
+		                                   </button><br>
+		                                   <button style="background-color:inherit; border: none" data-ng-click="">View History
+		                                   </button><br>
+	                                   </li>
+                                   </ul>
+                               </span>
+
+
+
+
+                        <div class="dropdown" style="padding-right: 5px">
+                            <form class="dropdown">
+                                <input type="text" value="" data-ng-model="searchText">
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </nav>
+
+            <table id="rounded-corner" style="width: 200% ; border-radius: 24px">
+                <thead>
+                <tr>
+                    <th scope="col" class="rounded">Name</th>
+                    <th scope="col" class="rounded">Email</th>
+                    <th scope="col" class="rounded">Language</th>
+                    <th scope="col" class="rounded">Position</th>
+                    <th scope="col" class="rounded">Level</th>
+                    <th scope="col" class="rounded">Score</th>
+                    <th scope="col" class="rounded">Edit</th>
+                    <th scope="col" class="rounded">Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr
+                        ng-repeat="c in MyCandidate | filter: searchText | filter : {candidate.language: searchLanguage} | filter : {candidate.position: searchPosition} | filter : {candidate.level : searchLevel}">
+                    <td>{{c.candidate.fullName}}</td>
+                    <td>{{c.candidate.account.email}}</td>
+                    <td>{{c.candidate.language}}</td>
+                    <td>{{c.candidate.position}}</td>
+                    <td>{{c.candidate.level}}</td>
+                    <td>{{c.score}}</td>
+
+                    <td><a href=""><img src="../images/images/user_edit.png" alt=""
+                                        title="" border="0" data-ng-click="btnEdit(c.candidate)"/></a></td>
+                    <td><a href="" class="ask"><img src="../images/images/trash.png"
+                                                    data-ng-click="deleteCandidate(c.candidate.account.email)"
+                                                    alt=""
+                                                    title="" border="0"/></a></td>
+                </tr>
+                </tbody>
+                <tfoot style="background-color: #256c89">
+                </tfoot>
+            </table>
+
+            <br/>
+
+            <div class="pagination">
+                <span class="disabled"><a href="">Prev</a></span><span
+                    class="current">1</span><a href="">2</a><a href="">3</a><a
+                    href="">4</a><a href="">5</a> <a href="">next >></a>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!--  Question Manager page -->
+<link rel="stylesheet" media="screen" href="stylesheets/question.css"/>
+<div class="container-fluid wrapper" data-ng-controller="QuestionCtrl">
+	<nav class="navbar navbar-default" role="navigation">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+	        <span class="sr-only">Toggle navigation</span>
+	      </button>
+	      <a class="navbar-brand" href="">Menu</a>
+	    </div>
+
+	    <div class="collapse navbar-collapse" id="menu">
+	      <form class="navbar-form navbar-left" role="search">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search" size="25">
+	        </div>
+	        <button type="submit" class="btn btn-default" data-ng-click="getAll()">Find!</button>
+	      </form>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="" data-toggle="modal" data-target="#myModal" data-ng-click="resetQuestion()">Add</a></li>
+	        <li class="dropdown">
+	         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter <span class="caret"></span></a>
+	         <ul class="dropdown-menu" role="menu">
+	         	<li>
+	         		<select class="form-control" data-ng-model="search.language">
+						<option value=""><b>All language</b></option>
+						<option value="Java"><b>Java</b></option>
+						<option value="C sharp"><b>C sharp</b></option>
+						<option value="PHP"><b>PHP</b></option>
+						<option value="C++"><b>C++</b></option>
+					</select>
+	         	</li>
+	         	<li>
+	         		<select class="form-control" data-ng-model="search.type">
+					    <label class="sr-only">Type</label>
+    					<option value=""><b>All type</b></option>
+						<option value="1"><b>One Choice</b></option>
+						<option value="2"><b>MultiChoice</b></option>
+						<option value="3"><b>Text</b></option>
+					</select>
+	         	</li>
+	         	<li>
+	         		<select class="form-control" data-ng-model="search.level">
+						<option value=""><b>All level</b></option>
+						<option value="Easy"><b>Easy</b></option>
+						<option value="Medium"><b>Medium</b></option>
+						<option value="Hard"><b>Hard</b></option>
+					</select>
+	         	</li>
+	         </ul>
+	        </li>
+	        <li class="dropdown">
+	          <a href="" class="dropdown-toggle" data-toggle="dropdown">Other <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="" data-ng-click="link('/create-exam')">Create exam</a></li>
+	            <li><a href="" data-ng-click="link('/change-pass')">Change pass</a></li>
+	            <li class="divider"></li>
+	            <li><a href="" data-ng-click="link('/admin')">Home</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+	</nav>
+	<!-- Start table of result -->
+
+	<table align="center" class="table table-condensed" data-ng-init="getAll()">
+		<tr>
+			<td class="active" data-ng-click="sortByWith(0)"><span class="glyphicon glyphicon-sort" data-ng-show="sortBy.ID"></span> ID</td>
+			<td class="success" data-ng-click="sortByWith(1)"><span class="glyphicon glyphicon-sort" data-ng-show="sortBy.language"></span>  Name</td>
+			<td class="info" data-ng-click="sortByWith(2)"><span class="glyphicon glyphicon-sort" data-ng-show="sortBy.content"></span>  Content</td>
+			<td class="warning" data-ng-click="sortByWith(3)"><span class="glyphicon glyphicon-sort" data-ng-show="sortBy.level"></span>  Level</td>
+		</tr>
+		<tr data-ng-repeat="question in allquestions | filter: nameSearch | filter: {language: search.language} | filter: {type: search.type} | filter: {level: search.level} |orderBy: sortBy.sort"
+		data-ng-show="($index<(indexOfPage*10+10)) && ($index>=(indexOfPage*10))">
+			<td class="active" data-ng-init="endPage($last,$index)">{{$index+1}}</td>
+			<td class="success">{{question.language}}</td>
+			<td class="info"><a href="#edit" data-toggle="modal" data-target="#myModal" data-ng-click="loadQuestion(question)">{{question.content}}</a></td>
+			<td class="warning">{{question.level}}</td>
+		</tr>
+	</table>
+	<!-- End table of result -->
+	<div align="center">
+		<ul class="pagination pagination-sm">
+	  		<li class=""><a href="" data-ng-click="previousPage()">&larr;</a></li>
+	  		<li class="active"><a href="" >{{indexOfPage+1}}</a></li>
+	  		<li class=""><a href="" data-ng-click="nextPage()">&rarr;</a></li>
+		</ul>
+	</div>
+
+	<!-- End table of result -->
+	<!-- Start modal add or edit result -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">{{headingModal}}</h4>
+	      </div>
+	      <div class="modal-body">
+			<form class="form" role="edit">
+		   		<div class="form-group">
+				  	<label><b>Level</b></label>
+					<select value="1" class="form-control" data-ng-model="newQuestion.level">
+						<option value="Easy">Easy</option>
+		      			<option value="Medium">Medium</option>
+		      			<option value="Hard">Hard</option>
+					</select>
+			  	</div>
+			  	<div class="form-group">
+					<label><b>Language</b></label>
+					<select value="1" class="form-control" data-ng-model="newQuestion.language">
+						<option value="Java">Java</option>
+		      			<option value="C sharp">C sharp</option>
+		      			<option value="PHP">PHP</option>
+		      			<option value="C++">C++</option>
+					</select>
+			  	</div>
+			  	<div class="form-group">
+				    <label><b>Content</label>
+				    <textarea class="form-control" rows="6" data-ng-model="newQuestion.content"></textarea>
+			  	</div>
+			  	<div class="form-group">
+					<label><b>Type</b></label>
+					<select class="form-control" data-ng-model="newQuestion.type" data-ng-options="qType.name for qType in types">
+					</select>
+				</div>
+				<div class="form-group" data-ng-hide="newQuestion.type.text">
+			  		<button type="button" class="btn btn-default btn-lg" data-ng-click="addQuiz()">
+			  			<span class="glyphicon glyphicon-plus"></span> Add Option
+			  		</button>
+			  	</div>
+			  	<div class="form-group" data-ng-show="newQuestion.type.text">
+			  		<textarea rows="4" cols="70"></textarea>
+			  	</div>
+				<div data-ng-repeat="quiz in quizzes" class="form-group" data-ng-hide="newQuestion.type.text">
+					<label><b>Option {{$index+1}}</b></label>
+					<div class="input-group">
+						<span class="input-group-addon" ng-hide="newQuestion.type.text">
+        				<input type="checkbox" name="typeCheckbox" ng-show="newQuestion.type.checkbox" data-ng-model="quiz.value">
+        				<input id="radio-{{$index}}" type="radio" name="typeRadio" ng-show="newQuestion.type.radio" value="{{quiz.sequence}}" data-ng-model="radioValue">
+	        			 </span>
+	       				<input type="text" class="form-control" ng-hide="newQuestion.type.text" data-ng-model="quiz.content">
+	      			</div>
+				</div>
+		   	</form>
+	      </div>
+	      <div class="modal-footer" >
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-danger" data-ng-click="deleteQuestion()">Delete</button>
+	        <button type="submit" class="btn btn-warning" data-ng-click="resetQuestion()">Reset</button>
+	        <button type="button" class="btn btn-success" data-ng-click="submit()">Submit</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- End modal add or edit result -->
+</div>

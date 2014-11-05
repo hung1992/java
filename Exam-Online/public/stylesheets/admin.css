@@ -1,0 +1,312 @@
+#sidebar{
+	width: 0px !important;
+	display: none !important; 
+}
+
+#content{
+	width: 100% !important;
+	padding-left: 0px !important;
+}
+
+.left_content {
+    width: 25%;
+    float: left;
+    padding: 10px 10px;
+}
+
+.right_content {
+    width: 75%;
+    float: left;
+    padding: 10px 10px;
+}
+
+.sidebar_search {
+    background: url(../images/images/sidebar_menu_top.gif) no-repeat center;
+    width: 90%;
+    height: 31px;
+    margin: 0 0 5px 0;
+}
+
+.sidebar_box {
+    width: 100%;
+    padding: 0px 0px;
+}
+
+.sidebar_box_top {
+    width: 100%;
+    height: 8px;
+    background: url(../images/images/sidebar_box_top.gif) no-repeat center bottom;
+}
+
+.sidebar_box_bottom {
+    width: 100%;
+    height: 8px;
+    background: url(../images/images/sidebar_box_bottom.gif) no-repeat center bottom;
+}
+
+.sidebar_box_content {
+    width: 100%;
+    height: auto;
+    background-color: #ecf8fd;
+    padding: 0 10px 0 10px;
+}
+
+input.search_input {
+    width: 100%;
+    height: 16px;
+    margin: 5px 0 0 5px;
+    border: 1px #bdebfd solid;
+    background: #92dbf8;
+    padding: 4px 0 0 2px;
+    float: left;
+    color: #096184;
+    font-size: 11px;
+}
+
+input.search_submit {
+    float: left;
+    background: none;
+    border: none;
+    margin: 7px 0 0 8px;
+}
+
+img.sidebar_icon_right {
+    float: right;
+    padding: 0 0 0 0;
+}
+
+.sidebar_box_content ul {
+    list-style: none;
+    padding: 10px 0 10px 0;
+    margin: 0px;
+    clear: both;
+}
+
+.sidebar_box_content ul li {
+    padding: 5px 0 5px 10px;
+    background: url(../images/images/list_bullet.gif) no-repeat left top;
+    background-position: 0px 10px;
+}
+
+div.pagination {
+    width: 625px;
+    clear: both;
+    padding: 10px 0 10px 0;
+    margin: 0px;
+    text-align: center;
+    float: left;
+    clear: both;
+    font-size: 11px;
+}
+
+div.pagination a {
+    padding: 2px 5px 2px 5px;
+    margin-right: 2px;
+    border: 1px solid #52bfea;
+    text-decoration: none;
+    color: #52bfea;
+}
+
+div.pagination a:hover, div.pagination a:active {
+    border: 1px solid #52bfea;
+    color: #fff;
+    background-color: #52bfea;
+}
+
+div.pagination span.current {
+    padding: 2px 5px 2px 5px;
+    margin-right: 2px;
+    border: 1px solid #52bfea;
+    font-weight: bold;
+    background-color: #52bfea;
+    color: #FFF;
+}
+
+div.pagination span.disabled {
+    padding: 2px 5px 2px 5px;
+    margin-right: 2px;
+    border: 1px solid #f3f3f3;
+    color: #ccc;
+}
+
+.menu ul table ul a, .menu ul table ul a:visited {
+    width: 14em;
+    width: 12em;
+}
+
+/* style the table so that it takes no part in the layout - required for IE to work */
+.menu table {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1em;
+    z-index: -1;
+}
+
+.menu ul ul table {
+    left: -1px;
+}
+
+.menu ul ul table ul.left {
+    margin-left: 2px;
+}
+
+.menu li:hover {
+    position: relative;
+}
+
+#rounded-corner {
+    margin: 0px;
+    width: 625px;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+#rounded-corner thead th.rounded-company {
+    width: 26px;
+    background: #60c8f2 url('../images/images/left.jpg') left top no-repeat;
+}
+
+#rounded-corner thead th.rounded-q4 {
+    background: #60c8f2 url('../images/images/right.jpg') right top no-repeat;
+}
+
+#rounded-corner th {
+    padding: 8px;
+    font-weight: normal;
+    font-size: 13px;
+    color: #039;
+    background: #60c8f2;
+}
+
+#rounded-corner td {
+    padding: 8px;
+    background: #ecf8fd;
+    border-top: 1px solid #fff;
+    color: #669;
+}
+
+#rounded-corner tfoot td.rounded-foot-left {
+    background: #ecf8fd url('../images/images/botleft.jpg') left bottom no-repeat;
+}
+
+#rounded-corner tfoot td.rounded-foot-right {
+    background: #ecf8fd url('../images/images/botright.jpg') right bottom no-repeat;
+}
+
+a.bt_green {
+    display: block;
+    float: right;
+    margin: 10px 5px 10px 5px;
+    line-height: 31px;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-shadow: 1px 1px #8fa42b;
+}
+
+a.bt_green strong {
+    width: auto;
+    height: 31px;
+    padding: 0 10px 0 10px;
+    display: block;
+    float: left;
+    background: url(../images/images/bt_green_center.gif) repeat-x center;
+}
+
+a.bt_green span.bt_green_lft {
+    width: 10px;
+    height: 31px;
+    display: block;
+    float: left;
+    background: url(../images/images/bt_green_left.gif) no-repeat center right;
+}
+
+a.bt_green span.bt_green_r {
+    width: 10px;
+    height: 31px;
+    display: block;
+    float: left;
+    background: url(../images/images/bt_green_r.gif) no-repeat center right;
+}
+
+a:hover.bt_green {
+    text-decoration: underline;
+}
+
+a.bt_blue {
+    display: block;
+    float: right;
+    margin: 10px 5px 10px 5px;
+    line-height: 31px;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-shadow: 1px 1px #3597bf;
+}
+
+a.bt_blue strong {
+    width: auto;
+    height: 31px;
+    padding: 0 10px 0 10px;
+    display: block;
+    float: left;
+    background: url(../images/images/bt_blue_center.gif) repeat-x center;
+}
+
+a.bt_blue span.bt_blue_lft {
+    width: 10px;
+    height: 31px;
+    display: block;
+    float: left;
+    background: url(../images/images/bt_blue_left.gif) no-repeat center right;
+}
+
+a.bt_blue span.bt_blue_r {
+    width: 10px;
+    height: 31px;
+    display: block;
+    float: left;
+    background: url(../images/images/bt_blue_r.gif) no-repeat center right;
+}
+
+a:hover.bt_blue {
+    text-decoration: underline;
+}
+
+a.bt_red {
+    display: block;
+    float: right;
+    margin: 10px 5px 10px 5px;
+    line-height: 31px;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-shadow: 1px 1px #c24739;
+}
+
+a.bt_red strong {
+    width: auto;
+    height: 31px;
+    padding: 0 10px 0 10px;
+    display: block;
+    float: left;
+    background: url(../images/images/bt_red_center.gif) repeat-x center;
+}
+
+a.bt_red span.bt_red_lft {
+    width: 10px;
+    height: 31px;
+    display: block;
+    float: left;
+    background: url(../images/images/bt_red_left.gif) no-repeat center right;
+}
+
+a.bt_red span.bt_red_r {
+    width: 10px;
+    height: 31px;
+    display: block;
+    float: left;
+    background: url(../images/images/bt_red_r.gif) no-repeat center right;
+}
+
+a:hover.bt_red {
+    text-decoration: underline;
+}

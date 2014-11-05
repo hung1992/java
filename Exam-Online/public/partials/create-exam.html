@@ -1,0 +1,238 @@
+<div class="container-fluid wrapper" data-ng-controller="CreateExamCtrl">
+<link rel="stylesheet" media="screen" href="../stylesheets/create-exam.css"/>
+	<!-- Page Header -->
+	<div class="page-header">
+		<ul class="nav nav-pills">
+			<li class="{{tab.searchPill}}" data-ng-click="tab.change(1)"><a href="">Search</a></li>
+			<li class="{{tab.editPill}}" data-ng-click="tab.change(2)"><a href="">Edit</a></li>
+			<li class="{{tab.viewPill}}" data-ng-click="tab.change(3)"><a href="">View</a></li>
+			<div class="menu-dropdown">
+				<li class="dropdown">
+					<a href="" class="dropdown-toggle" data-toggle="dropdown">Link to <span class="caret"></span></a>
+		          	<ul class="dropdown-menu pull-right" role="menu">
+		            <li><a href="" data-ng-click="link('/question')">Create question</a></li>
+		            <li><a href="" data-ng-click="link('/change-pass')">Change pass</a></li>
+		            <li class="divider"></li>
+		            <li><a href="" data-ng-click="link('/admin')">Home</a></li>
+		          </ul>
+				</li>
+			</div>
+		</ul>
+	</div>
+	<!-- End page header -->
+
+	<!-- Tab Search -->
+	<nav class="navbar navbar-default" role="navigation" data-ng-show="tab.search">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	      </button>
+	      <a class="navbar-brand">Menu</a>
+	    </div>
+
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <form class="navbar-form navbar-left" role="search">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search" size="30" data-ng-model="search.name">
+	        </div>
+	        <button data-ng-click="getAll()" type="button" class="btn btn-info"><span class="glyphicon glyphicon-refresh">Refresh</span></button>
+	        <select class="form-control" data-ng-model="search.language">
+	        	<option value="">All language</option>
+	        	<option value="Java">Java</option>
+	        	<option value="C sharp">C sharp</option>
+	        	<option value="PHP">PHP</option>
+	        	<option value="C++">C++</option>
+	        </select>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
+
+	<!-- Table of result -->
+		<table align="center" class="table table-condensed" data-ng-init="getAll()" data-ng-show="tab.search">
+		<tr>
+			<td class="active" data-ng-click="sortByWith(0)"><span class="glyphicon glyphicon-sort" data-ng-show="sortBy.ID"></span> ID</td>
+			<td class="success" data-ng-click="sortByWith(1)"><span class="glyphicon glyphicon-sort" data-ng-show="sortBy.name"></span>  Name</td>
+			<td class="info" data-ng-click="sortByWith(2)"><span class="glyphicon glyphicon-sort" data-ng-show="sortBy.language"></span>  Language</td>
+			<td class="warning" data-ng-click="sortByWith(3)"><span class="glyphicon glyphicon-sort" data-ng-show="sortBy.duration"></span>  Duration</td>
+			<td class="danger" data-ng-click="sortByWith(4)"><span class="glyphicon glyphicon-sort" data-ng-show="sortBy.amountOfQuestions"></span> Amount of questions</td>
+		</tr>
+		<tr data-ng-repeat="exam in exams | filter: search.name| filter: {language: search.language} |orderBy: sortBy.sort"
+		data-ng-show="($index<(indexOfPage*10+10)) && ($index>=(indexOfPage*10))">
+			<td class="active" data-ng-init="endPage($last,$index)">{{$index+1}}</td>
+			<td class="success"><a data-ng-click="loadExam(exam)">{{exam.name}}</a></td>
+			<td class="info">{{exam.language}}</td>
+			<td class="warning">{{exam.duration}}</td>
+			<td class="warning">{{exam.numberOfQuestion}}</td>
+		</tr>
+		</table>
+		<div align="center" data-ng-show="tab.search">
+			<ul class="pagination pagination-sm">
+		  		<li class=""><a href="" data-ng-click="previousPage()">&larr;</a></li>
+		  		<li class="active"><a href="" >{{indexOfPage+1}}</a></li>
+		  		<li class=""><a href="" data-ng-click="nextPage()">&rarr;</a></li>
+			</ul>
+		</div>
+	<!-- End table of result -->
+
+
+	<!-- End tab search -->
+
+	<!-- Tab edit -->
+	<form role="form" data-ng-show="tab.edit">
+		<div class="part">
+			<label><b>Name</b></label>
+			<input type="text" class="form-control" placeholder="Name" data-ng-model="newExam.name">
+		</div>
+		<div class="part">
+			<label><b>Number of questions</b></label>
+			<div class="input-group select-input">
+				<span class="input-group-addon">Auto <input type="checkbox" data-ng-model="newExam.autoCountQuestion"></span>
+				<input data-ng-hide="newExam.autoCountQuestion" data-ng-model="newExam.numberOfQuestion" type="number" class="form-control" step="1" min="1" max="1000">
+				<span data-ng-show="newExam.autoCountQuestion" class="input-group-addon form-control">Amount of question: {{newExam.numberQuestion}}</span>
+			</div>
+		</div>
+		<div class="part select-input">
+			<label><b>Duration: (minutes)</b></label>
+			<input class="form-control" data-ng-model="newExam.duration" type="number" step="5" min="5" max="600" value="60">
+		</div>
+		<div class="part select-input">
+			<label><b>Language</b></label>
+			<select class="form-control" data-ng-model="newExam.language">
+				<option value="Java">Java</option>
+				<option value="C sharp">C sharp</option>
+				<option value="PHP">PHP</option>
+				<option value="C++">C++</option>
+			</select>
+		</div>
+		<div class="part button-input">
+			<label data-ng-hide="newExam.autoCountQuestion"><b>Question: {{newExam.numberQuestion}}/{{newExam.numberOfQuestion}}</b></label>
+			<label data-ng-show="newExam.autoCountQuestion"><b>Question: {{newExam.numberQuestion}}</b></label>
+			<button data-ng-click="getAllQuestion()" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"> Add</span></button><br>
+		</div>
+		<div class="part" data-ng-repeat="question in newExam.questions">
+			<div class="list-group">
+				<ul class="list-group-item">
+					<span data-ng-click="move(true,$index)" class="badge glyphicon glyphicon-arrow-up">Up</span>
+					<span data-ng-click="move(false,$index)" class="badge glyphicon glyphicon-arrow-down">Down</span>
+					<span class="badge">{{question.level}}</span>{{$index+1}}. {{question.content}}
+					<div data-ng-repeat="quiz in question.quizzes" class="header-text">
+						<li>quiz.content</li>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div class="form-group">
+			<button type="button" class="btn btn-primary" data-ng-click="submit()"><span class="glyphicon glyphicon-save"></span> Save</button>
+			<button type="button" class="btn btn-info" data-ng-click="resetExam()"><span class="glyphicon glyphicon-refresh"> Refresh</button>
+			<button type="button" class="btn btn-warning" data-ng-click="tab.change(3)"><span class="glyphicon glyphicon-list-alt"> View</button>
+			<button type="button" class="btn btn-danger" data-ng-click="deleteExam(newExam.ID)"><span class="glyphicon glyphicon-trash"> Delete</span></button>
+		</div>
+	</form>
+	<!-- End tab edit -->
+
+	<!-- Tab view -->
+	<form role="form" data-ng-show="tab.view">
+		<div class="part">
+			<label><b>Title: {{newExam.name}}</b></label>
+		</div>
+		<div class="part">
+			<label><b>Time: {{newExam.duration}}</b></label>
+		</div>
+		<div class="part">
+			<label><b>Language: {{newExam.language}}</b></label>
+		</div>
+		<div class="part" data-ng-repeat="question in newExam.questions">
+			<div class="list-group">
+				<ul class="list-group-item">
+					<b>Question {{$index+1}}.</b> {{question.content}}
+					<div><textarea rows="4" cols="75" data-ng-show="question.type==3"></textarea></div>
+					<div data-ng-hide="question.type==3" data-ng-repeat="quiz in question.quizzes" class="header-text">
+						<input type="checkbox" data-ng-show="question.type==2">
+						<input type="radio" data-ng-show="question.type==1">
+						quiz.content<br>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</form>
+	<!-- End tab view -->
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" style="width:65%">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h3 class="modal-title" id="myModalLabel">Option question</h3>
+	        <form class="form-inline" role="form">
+                <div class="form-group">
+                    <input data-ng-model="nameSearch" type="text" class="form-control" placeholder="Search"><br>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-repeat">Refresh</span></button>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" data-ng-model="search.question.language">
+                        <option value="">All language</option>
+                        <option value="Java">Java</option>
+                        <option value="C sharp">C sharp</option>
+                        <option value="PHP">PHP</option>
+                        <option value="C++">C++</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" data-ng-model="search.question.level">
+                        <option value="">All level</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" data-ng-model="search.question.type">
+                        <option value="">All type</option>
+                        <option value="1">One Choice</option>
+                        <option value="2">MultiChoice</option>
+                        <option value="3">Text</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary glyphicon glyphicon-floppy-save" data-ng-click="submitQuestion()"> Save</button>
+                </div>
+            </form>
+	      </div>
+	      <div class="modal-body">
+	       <div class="panel-group" id="accordion">
+           <div class="panel panel-default" data-ng-repeat="question in allQuestions | filter: nameSearch | filter: {language: search.question.language} | filter: {level: search.question.level} | filter: {type: search.question.type}">
+
+              <div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#collapse{{question.ID}}">
+                {{question.ID}}/ {{question.language}} - {{question.level}}</a>
+                <input type="checkbox" data-ng-init="" data-ng-model="question.choose" >
+                <span class="badge badge-right" data-ng-show="question.choose">Question is choosed.</span>
+              </div>
+              <div id="collapse{{question.ID}}" class="panel-collapse collapse in">
+              <div class="panel-footer">
+                <b>Content:</b> {{question.content}}
+                <div data-ng-show="question.type==1"><b>Type:</b> One Choice</div>
+                <div data-ng-show="question.type==2"><b>Type:</b> Multi Choice</div>
+                <div data-ng-show="question.type==3"><b>Type:</b> Text</div>
+                <li data-ng-repeat="quiz in question.quizzes">
+                    <label><b>{{quiz.content}}</b></label>
+                </li>
+              </div>
+
+              </div>
+            </div>
+          	</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+</div>

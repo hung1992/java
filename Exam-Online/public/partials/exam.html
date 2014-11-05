@@ -1,0 +1,72 @@
+<link rel="stylesheet" media="screen" href="stylesheets/exam.css" />
+<!-- <link rel="stylesheet" media="screen" href="stylesheets/jquery.confirm.css" /> -->
+<!-- <script src="lib/jquery/jquery.confirm.js" type="text/javascript"></script> -->
+
+<div class="container-fluid wrapper" confirm-on-exit>
+
+	<div>
+		<div  style="text-align: center;">
+			<h2>{{currentExam.name}}</h2>
+			<h4>Duration: {{currentExam.duration}} / {{remainSeconds/60 - 0.5 | number:0 }} : {{remainSeconds%60}}</h4>
+			<h4>Number of questions: {{currentExam.numberOfQuestion}}</h4>
+			<span class="label label-danger">Please stay at this page until your test is submitted or time is out.</span>
+<!-- 			<timer interval="60000" countdown="remainMinutes">Remain {{countdown + 1}} minute(s)</timer> -->
+
+		</div>
+		<form>
+			<div ng-repeat="answer in tmpAnswer" class="list-group">
+				<ul class="list-group-item">
+					<span><b>Question {{$index + 1}}:</b></span>
+					<span>{{answer.question.content}}</span>
+					<div class="animate-switch-container" style="padding-left: 15px;" ng-switch on="answer.question.type">
+						<!-- One choice question -->
+		      			<div class="animate-switch" ng-switch-when="1">
+		      				<div ng-repeat="quiz in answer.question.quizzes">
+		      					<input type="radio" ng-model="answer.answerValue" value="{{$index + 1}}" id="{{$parent.$index*10 + $index}}">
+		      					<label class="noBold" for="{{$parent.$index*10 + $index}}">{{quiz.content}}</label>
+		      				</div>
+		      			</div>
+
+		      			<!-- Multi choice -->
+		      			<div class="animate-switch" ng-switch-when="2">
+		      				<div ng-repeat="quiz in answer.question.quizzes">
+		      					<input type="checkbox" ng-model="quiz.value" id="{{$parent.$index*10 + $index}}">
+		      					<label class="noBold" for="{{$parent.$index*10 + $index}}">{{quiz.content}}</label>
+		      				</div>
+		      			</div>
+
+		      			<!-- text -->
+		      			<div class="animate-switch" ng-switch-when="3">
+		      				<textarea rows="5" ng-model="answer.answerValue"></textarea>
+		      			</div>
+		  			</div>
+		  		</ul>
+			</div>
+			<div class="form-group" style="float: right">
+				<button type="submit" class="btn btn-primary" ng-click="submit()">Submit</button>
+			</div>
+		</form>
+	</div>
+
+	<!-- Modal to confirm before submit answer -->
+	<div class="modal fade" id="answerModal" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title">Out of time!</h4>
+	      </div>
+	      <div class="modal-body">
+	        You should click Done to submit your answer.<br/>
+	        If you cancel your test, your result will not mark and you can not do another.<br/>
+	        Thank you so much. The result will be sent to you by email as soon as.
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="deactive()">Cancel</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="done()">Done</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+</div>
