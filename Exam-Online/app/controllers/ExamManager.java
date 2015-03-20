@@ -16,8 +16,6 @@ import utils.Tools;
 /**
  * This is class ExamManager.java
  * Update the exam by Id
- * @param id
- * @returns The exam view
  */
 public class ExamManager extends Controller{
 
