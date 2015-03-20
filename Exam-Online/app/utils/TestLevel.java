@@ -1,8 +1,5 @@
 package utils;
-/**
- *
- * @author Yokovu
- */
+
 public class TestLevel {
 
 	//Constant is used for attribute "language" in class Question
