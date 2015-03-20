@@ -1,9 +1,4 @@
-/**
- * Copyright by Technologic Arts
- * Project: EXAMONLINE
- * Package: controllers
- * Author: khacvu
- */
+
 package utils;
 import java.io.IOException;
 import java.util.List;
