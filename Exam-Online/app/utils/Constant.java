@@ -1,9 +1,4 @@
-/**
- * Copyright by Technologic Arts
- * Project: e-Test
- * Package: utils
- * Author: ta-08
- */
+
 package utils;
 
 /**
