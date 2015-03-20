@@ -1,9 +1,4 @@
-/**
- * Copyright by Technologic Arts
- * Project: EXAMONLINE
- * Package: controllers
- * Author: khacvu
- */
+
 package controllers;
 
 import java.util.ArrayList;
