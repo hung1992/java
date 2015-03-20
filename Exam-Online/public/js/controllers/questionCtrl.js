@@ -1,10 +1,6 @@
 'use strict';
 
-/**
- * QuestionCtrl
- * @author khacvu
- * @param Question
- */
+
 
 var QuestionCtrl = (function($scope, $rootScope, $location, Question) {
 	//List all question
