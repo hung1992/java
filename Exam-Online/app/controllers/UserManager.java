@@ -16,9 +16,7 @@ import utils.Tools;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-/**
- * This is class UserManager.java
- */
+
 public class UserManager extends Controller {
 
 	/**
