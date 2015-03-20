@@ -1,9 +1,4 @@
-/**
- * Copyright by Technologic Arts
- * Project: eTest
- * Package: controllers
- * Author: ta-08
- */
+
 package controllers;
 
 import java.util.List;
