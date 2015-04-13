@@ -1,15 +1,21 @@
-package sources;
+/* ******************************
+ * AI - PROGRAMING ASSIGNMENT 1
+ * Student : NGUYEN NGOC HUNG
+ * ID      :  51001393
+ ********************************/
+
+package src;
 
 import java.awt.Color;
 
-class Tile {
+class Cell {
 	int value;
 
-	public Tile() {
+	public Cell() {
 		this(0);
 	}
 
-	public Tile(int num) {
+	public Cell(int num) {
 		value = num;
 	}
 
